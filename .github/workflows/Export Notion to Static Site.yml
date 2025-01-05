@@ -10,37 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Export Notion Page
-      uses: victornpb/notion-jam@v0.0.9
-      with:
-        NOTION_API_KEY: ${{ secrets.NOTION_SECRET }}
-        NOTION_PAGE_ID: "133c6c2a-699c-80fd-ac0f-c9de6036be75"
-        OUTPUT_DIR: "docs" # Optional, specify output directory
-    ```
-
----
-
-### Key Features of `notion-jam`
-
-- **Markdown Export**: Converts Notion pages to Markdown for static site generators.
-- **Image Handling**: Downloads and processes images from Notion pages.
-- **JAMstack Ready**: Works well with frameworks like Eleventy, Hugo, or GitHub Pages.
-
----
-
-### Steps to Generate and Share a Notion Website
-
-1. **Export Content**:
-   - Use the workflow above to export your Notion page to a Markdown format in your repository.
-
-2. **Publish to GitHub Pages**:
-   - If you’re using GitHub Pages, ensure the exported content is placed in the correct directory (e.g., `docs`).
-   - Enable GitHub Pages under **Settings > Pages**, and point it to the `docs` folder or your workflow output directory.
-
-3. **Automate Updates**:
-   - Configure your workflow to trigger on `push` events to automatically update the static site whenever your Notion content changes.
-
----
+      - name: Export Notion Page
+        uses: victornpb/notion-jam@v0.0.9
+        with:
+          NOTION_API_KEY: ${{ secrets.NOTION_SECRET }}
+          NOTION_PAGE_ID: "133c6c2a-699c-80fd-ac0f-c9de6036be75"
+          OUTPUT_DIR: "docs" # Optional, specify output directory
