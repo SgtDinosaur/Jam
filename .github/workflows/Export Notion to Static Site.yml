@@ -16,6 +16,7 @@ jobs:
       - name: Export Notion Page
         uses: victornpb/notion-jam@v0.0.9
         with:
-          NOTION_API_KEY: ${{ secrets.NOTION_SECRET }}
-          NOTION_PAGE_ID: "133c6c2a-699c-80fd-ac0f-c9de6036be75"
-          OUTPUT_DIR: "docs" # Optional, specify output directory
+          NOTION_SECRET: ${{ secrets.NOTION_SECRET }}
+          NOTION_PAGE_ID: "133c6c2a-699c-80fd-ac0f-c9de6036be75" # The page ID of your Notion page
+          ARTICLE_PATH: "docs/articles" # Optional: specify output directory for articles
+          ASSETS_PATH: "docs/assets" # Optional: specify output directory for assets
